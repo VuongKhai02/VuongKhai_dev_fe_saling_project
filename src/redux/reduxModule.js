@@ -254,35 +254,35 @@ export const reducer = (state = (initial), action) =>
             let selectPriceDetailElement = document.querySelector("select[name='price_detail']").value;
             let selectOriginalDetailElement = document.querySelector("select[name='original_detail']").value;
             // if(selectPriceDetailElement == "f_less_1000" && selectOriginalDetailElement =="HanQuoc"){
-            //     let newFruits = state.fruits.filter(item => (item.newPrice < 1000 && item.original == "Hàn Quốc"))
+            //     let newFruits = fruitInit.filter(item => (item.newPrice < 1000 && item.original == "Hàn Quốc"))
             //     return{
             //         ...state,
             //         fruits:[...newFruits]
             //     }
             // }
+            
             if(selectPriceDetailElement == "f_less_1000"){
                 if(selectOriginalDetailElement =="HanQuoc"){
-                    let newFruits = state.fruits.filter(item => (item.newPrice < 1000 && item.original == "Hàn Quốc"))
+                    let newFruits = fruitInit.filter(item => (item.newPrice < 1000 && item.original == "Hàn Quốc"))
                     return{
                         ...state,
                         fruits:[...newFruits]
                     }
                 }
                 if(selectOriginalDetailElement =="TrungQuoc"){
-                    let newFruits = state.fruits.filter(item => (item.newPrice < 1000 && item.original == "Trung Quốc"))
+                    let newFruits = fruitInit.filter(item => (item.newPrice < 1000 && item.original == "Trung Quốc"))
                     return{
                         ...state,
                         fruits:[...newFruits]
                     }
                 }
                 if(selectOriginalDetailElement == ""){
-                    let newFruits = state.fruits.filter(item => (item.newPrice < 1000 ))
+                    let newFruits = fruitInit.filter(item => (item.newPrice < 1000 ))
                     return{
                         ...state,
                         fruits:[...newFruits]
                     }
                 }
-
             }
         // Author
         case "checkauthor":

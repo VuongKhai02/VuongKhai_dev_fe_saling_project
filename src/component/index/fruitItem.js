@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import { addToCart } from "../../redux/actionModule";
 
 import {
-    Link,Outlet,
+    Link,
   } from "react-router-dom";
 
 import {useParams} from "react-router-dom"

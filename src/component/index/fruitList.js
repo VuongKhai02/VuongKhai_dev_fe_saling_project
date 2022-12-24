@@ -19,14 +19,33 @@ function FruitList(props){
     let {changePosition,filterByPrice} = props;
     console.log(listFruits);
 
-    
-    const settings = {
+    let settings = {
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
         nextArrow: <NextArrow_Slick />,
         prevArrow: <PrevArrow_Slick />,
       };
+    if(listFruits.length == 1){
+        settings = {
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            nextArrow: <NextArrow_Slick />,
+            prevArrow: <PrevArrow_Slick />,
+        };
+        
+    }
+    else{
+        settings = {
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            nextArrow: <NextArrow_Slick />,
+            prevArrow: <PrevArrow_Slick />,
+        };
+    }
+
     return (
         <div>
             

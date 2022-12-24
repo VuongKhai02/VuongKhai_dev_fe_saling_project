@@ -303,6 +303,7 @@ header a {
 .seller-item .seller-product .seller-img img {
   width: 270px;
   height: 270px;
+  margin: auto;
 }
 
 

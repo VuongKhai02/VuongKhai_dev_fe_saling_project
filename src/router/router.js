@@ -19,12 +19,10 @@ export const routers = createBrowserRouter([
             path:"/",
             element: <Index />
         },
-        
         {
             path:"/blog",
             element: <Blog />
         },
-        
         {
           path:"/fruitDetails/:id",
           element: <Fruit_Detail />
