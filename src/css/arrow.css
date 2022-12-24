@@ -1,0 +1,28 @@
+.content .seller{
+    position: relative;
+}
+
+.fa-angle-left, .fa-angle-right {
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    background-color: #ccc;
+    color: #fff;
+}
+
+
+.fa-angle-left:hover, .fa-angle-right:hover {
+    background-color: #000;
+    cursor: pointer
+}
+
+.fa-angle-right {
+    right: -5%;
+}
+
+.fa-angle-left {
+    left: -5%;
+    
+}

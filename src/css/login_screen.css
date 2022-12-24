@@ -1,0 +1,24 @@
+    
+    .container .content{
+        margin-top: 11rem;
+    }
+    .right-container{
+        padding: 2rem;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 3px 4px 33px 19px #ccc;
+    }
+
+    .right-container .btn_login{
+        text-align: center;
+        color: #000;
+    }
+
+    input:hover{
+        opacity: 0.6;
+        cursor: pointer;
+    }
+
+    a:hover{
+        text-decoration: none !important;
+    }
