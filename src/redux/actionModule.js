@@ -61,3 +61,10 @@ export const checkAuthor = (status) => {
         value: status
     }
 }
+
+// Scrool
+export const scrollToTop = () => {
+    return {
+        type: "scrollTop",
+    }
+}

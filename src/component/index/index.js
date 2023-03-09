@@ -9,6 +9,7 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import FruitList_VietNam from "./fruitList_VietNam";
 
 function Index(props){
     let{isDisplay} = props;
@@ -42,18 +43,27 @@ function Index(props){
             <section className="category">
                 <div className="content">
                     <a href="" className="category-img category-item1">
+                        <div className="category-desciption-onhover">
+                            <p>Xem chi tiết</p>
+                        </div>
                         <div className="category-description">
                             <h3>TRÁI CÂY TRONG NƯỚC</h3>
                             <button><span>Xem thêm</span></button>
                         </div>
                     </a>
                     <a href="" className="category-img category-item2">
+                        <div className="category-desciption-onhover">
+                            <p>Xem chi tiết</p>
+                        </div>
                         <div className="category-description">
                             <h3>TRÁI CÂY NHẬP KHẨU</h3>
                             <button><span>Xem thêm</span></button>
                         </div>
                     </a>
                     <a href="" className="category-img category-item3">
+                        <div className="category-desciption-onhover">
+                            <p>Xem chi tiết</p>
+                        </div>
                         <div className="category-description">
                             <h3>TRÁI CÂY THEO MÙA</h3>
                             <button><span>Xem thêm</span></button>
@@ -61,13 +71,12 @@ function Index(props){
                     </a>
                 </div>
             </section>
-            
             {
                 isDisplay == true && 
                 <CartList />
             }
             <FruitList />
-
+{/* 
             <section className="sellers-women">
                 <div className="sellers-title">
                     <h2>TRÁI CÂY TRONG NƯỚC</h2>
@@ -75,8 +84,6 @@ function Index(props){
                 </div>
                 <div className="content">
                     <div className="seller">
-                        
-                            
                         <div className="seller-item">
                             <div href="" className="seller-product">
                                 <a href="" className="seller-img">
@@ -149,7 +156,12 @@ function Index(props){
                    
                 </div>
                 
-            </section>
+            </section> */}
+
+            
+            {/* <FruitList_VietNam /> */}
+
+
 
             <section className="data-projection">
                 <div className="data-projection-content">

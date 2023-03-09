@@ -4,7 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+
+
 //React-router
+
+
+
 import {
   RouterProvider,
 } from 'react-router-dom';
@@ -23,7 +29,8 @@ const store = createStore(reducer)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <RouterProvider router = {routers} />
+    <RouterProvider router = {routers} scrollToTop={true}>
+    </RouterProvider>
   </Provider>
 );
 

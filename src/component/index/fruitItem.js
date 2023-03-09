@@ -33,7 +33,9 @@ function FruitItem(props){
                         <span className="initial-price newPrice">{fruitItem.oldPrice}</span>    
                     </div>
                     <div className="seller-detail">
-                        <Link to ={`/fruitDetails/${fruitItem.id}`}  >Chi tiết</Link>
+                        <Link to ={`/fruitDetails/${fruitItem.id}`}  onClick={() => {
+    window.scrollTo(0, 0);
+  }} >Chi tiết</Link>
                     </div>
                 </div>
             </div>

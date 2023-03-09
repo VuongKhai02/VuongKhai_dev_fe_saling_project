@@ -30,7 +30,7 @@
     overflow: hidden;
 }
 .fd-imgDetail_list-item{
-    width: 450px;
+    /* width: 450px; */
     transition: transform 0.3s;
 }
 

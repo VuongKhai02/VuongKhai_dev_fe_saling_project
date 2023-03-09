@@ -1,5 +1,5 @@
 import './App.css';
-import { toggleCart } from './redux/actionModule';
+import { toggleCart,scrollToTop } from './redux/actionModule';
 import {connect} from "react-redux";
 import {
   Link,Outlet
@@ -13,7 +13,7 @@ import PrevArrow_Slick from './component/index/prevArrow_slick';
 function App(props) {
     let {isDisplay,style} = props;
     // Function
-    let {toggleCart} = props;
+    let {toggleCart, scrollToTop} = props;
     const settings = {
         dots: true,
         infinite: true,
@@ -25,6 +25,40 @@ function App(props) {
       };
   return (
     <div>
+        <button id="btnToTop" onClick={() => {scrollToTop()}} ><i className="fa-solid fa-angle-up"></i></button>
+    
+                <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel"></h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <i className="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                <ul className="menu-main">
+                                    <li><a href="">TRÁI CÂY NỘI ĐỊA</a></li>
+                                    <li><a href="">TRÁI CÂY NHẬP KHẨU</a></li>
+                                    <li id="list-block"><a href="">THÔNG TIN</a>
+                                        <ul className="menu-child">
+                                            <Link to="/blog">
+                                                <li>Blog</li>
+                                            </Link>
+                                            
+                                            <li><a href="">Về chúng tôi</a></li>
+                                            <li><a href="">Long & Short</a></li>
+                                        </ul>
+                                    </li>
+                                    
+                                </ul>   
+                                <Link to="/"> <li className='logo'>
+                                    <img  src={logo} alt="logo"/>
+                                        </li>  </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <header  >
                 <div className="wrapper">
                     <div className="menu-left">
@@ -36,35 +70,38 @@ function App(props) {
                                     <Link to="/blog">
                                         <li>Blog</li>
                                     </Link>
-                                    
                                     <li><a href="">Về chúng tôi</a></li>
                                     <li><a href="">Long & Short</a></li>
                                 </ul>
                             </li>
-                            <Link to="/login">
-                                <li>ĐĂNG NHẬP<i className="fa-solid fa-user"></i></li>
-                            </Link>
-                        </ul>   
+                            <Link to="/"> <li className='logo'>
+                            <img  src={logo} alt="logo"/>
+                                </li>  </Link>
+                        </ul> 
+                        <ul className='menu-main_btn'>
+                        
+                <button type="button" className="btn btn-primary btn_menu" data-toggle="modal" data-target="#exampleModal">
+                    <i className="fa-solid fa-bars"></i>
+                </button>
+                        </ul>  
                     </div>
                     <div className="menu-right mb-0">
                         <ul className='mb-0'>
+                                
+                        <Link to="/login">
+                                <li>ĐĂNG NHẬP<i className="fa-solid fa-user"></i></li>
+                            </Link>
                             <li><a onClick={() => {toggleCart(true)}}>Giỏ hàng<i className="fa-solid fa-cart-shopping"></i></a></li>
-                            
                         {
                             isDisplay == true && 
                             <CartList />
                         }
-                            <li><a href=""><i className="fa-solid fa-magnifying-glass icon"></i></a></li>
+                            <li><input className='txt-search' type="text" name="name" placeholder='Exp: Mít' /></li>
+                            <li className='btn-search'><a href=""><i className="fa-solid fa-magnifying-glass icon"></i></a></li>
                         </ul>
                     </div>
                 </div>
-                <div className="logo">
-                  <Link to="/"> <img  src={logo} alt="logo"/> </Link>
-                </div>
             </header>
-
-            
-                    
 {/*  */}
             <Outlet />
 {/*  */}
@@ -149,5 +186,7 @@ function App(props) {
 }
 
 const mapStateToProps = (state) => ({isDisplay: state.isDisplay})
-const mapDispatchToProps = {toggleCart}
+const mapDispatchToProps = {toggleCart,scrollToTop}
 export default connect(mapStateToProps,mapDispatchToProps)(App);
+
+

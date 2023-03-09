@@ -3,6 +3,80 @@ import { Link } from "react-router-dom";
 import { duaVang, quyt } from "../images/index_img";
 import {addToCart} from "./actionModule";
 // import { toggleCart } from "./actionModule";
+/*
+const fruitVNInit = [
+    {
+        id:1, 
+        name: "Dưa vàng",
+        original: "Việt Nam",
+        oldPrice: 1000,
+        newPrice: 300,
+        image:"images/duavangVN.jfif",
+        desc: `Dưa vàng (cantaloupe) là một loại quả thuộc họ Bầu bí, vỏ có nhiều đường chằng 
+        chịt màu nâu và ruột vàng, mọng nước, vị ngọt. Dưới đây là các chất dinh dưỡng có trong loại quả này.`,
+        package: "1kg",
+        discount: 0,
+        quantity: 3,
+        quantity_order: 0
+    },
+    {
+        id:2, 
+        name: "Dưa hấu",
+        original: "Việt Nam",
+        oldPrice: 1400,
+        newPrice: 500,
+        image:"images/duahauVN.jpg",
+        desc: `Dưa hấu (cantaloupe) là một loại quả thuộc họ Bầu bí, vỏ có nhiều đường chằng 
+        chịt màu nâu và ruột vàng, mọng nước, vị ngọt. Dưới đây là các chất dinh dưỡng có trong loại quả này.`,
+        package: "1kg",
+        discount: 0,
+        quantity: 3,
+        quantity_order: 0
+    },
+    {
+        id:3, 
+        name: "Chanh leo",
+        original: "Việt Nam",
+        oldPrice: 18000,
+        newPrice: 800,
+        image:"images/changleoVN.jfif",
+        desc: `Chanh leo (cantaloupe) là một loại quả thuộc họ Bầu bí, vỏ có nhiều đường chằng 
+        chịt màu nâu và ruột vàng, mọng nước, vị ngọt. Dưới đây là các chất dinh dưỡng có trong loại quả này.`,
+        package: "1kg",
+        discount: 0,
+        quantity: 3,
+        quantity_order: 0
+    },
+    {
+        id:4, 
+        name: "Mận",
+        original: "Việt Nam",
+        oldPrice: 4000,
+        newPrice: 3500,
+        image:"images/man.jpg",
+        desc: `Mận (cantaloupe) là một loại quả thuộc họ Bầu bí, vỏ có nhiều đường chằng 
+        chịt màu nâu và ruột vàng, mọng nước, vị ngọt. Dưới đây là các chất dinh dưỡng có trong loại quả này.`,
+        package: "1kg",
+        discount: 0,
+        quantity: 3,
+        quantity_order: 0
+    },
+    {
+        id:5, 
+        name: "Hồng",
+        original: "Việt Nam",
+        oldPrice: 2000,
+        newPrice: 600,
+        image:"images/hong.jfif",
+        desc: `Hồng (cantaloupe) là một loại quả thuộc họ Bầu bí, vỏ có nhiều đường chằng 
+        chịt màu nâu và ruột vàng, mọng nước, vị ngọt. Dưới đây là các chất dinh dưỡng có trong loại quả này.`,
+        package: "1kg",
+        discount: 0,
+        quantity: 3,
+        quantity_order: 0
+    },
+]
+*/
 
 const fruitInit = [
     {
@@ -18,6 +92,7 @@ const fruitInit = [
         discount: 0,
         quantity: 3,
         quantity_order: 0
+        
     },
     {
         id:2,
@@ -94,7 +169,22 @@ const fruitInit = [
         quantity: 3,
         quantity_order: 0
     },
+    {
+        id:7,
+        name: "Táo",
+        original: "Việt Nam",
+        oldPrice: 1200,
+        newPrice: 2100,
+        image:"images/táo.jpg",
+        desc: `Táo là một trong những loại trái cây phổ biến nhất thế giới. Chúng có nhiều chất xơ, vitamin C và các chất chống oxy hóa khác nhau. 
+        Duy trì thói quen ăn táo mỗi ngày có thể làm giảm lượng calo hàng ngày và thúc đẩy giảm cân lâu dài.`,
+        package: "1 thùng",
+        discount: 5,
+        quantity: 6,
+        quantity_order: 0
+    },
 ]
+
 
 const cartInit = [
     
@@ -261,35 +351,29 @@ export const reducer = (state = (initial), action) =>
             //     }
             // }
             
-            if(selectPriceDetailElement == "f_less_1000"){
-                if(selectOriginalDetailElement =="HanQuoc"){
-                    let newFruits = fruitInit.filter(item => (item.newPrice < 1000 && item.original == "Hàn Quốc"))
-                    return{
-                        ...state,
-                        fruits:[...newFruits]
-                    }
+            if (selectPriceDetailElement === "f_less_1000") {
+                let filteredFruits = fruitInit.filter(item => item.newPrice < 1000);
+              
+                if (selectOriginalDetailElement === "HanQuoc") {
+                  filteredFruits = filteredFruits.filter(item => item.original === "Hàn Quốc");
+                } else if (selectOriginalDetailElement === "TrungQuoc") {
+                  filteredFruits = filteredFruits.filter(item => item.original === "Trung Quốc");
                 }
-                if(selectOriginalDetailElement =="TrungQuoc"){
-                    let newFruits = fruitInit.filter(item => (item.newPrice < 1000 && item.original == "Trung Quốc"))
-                    return{
-                        ...state,
-                        fruits:[...newFruits]
-                    }
-                }
-                if(selectOriginalDetailElement == ""){
-                    let newFruits = fruitInit.filter(item => (item.newPrice < 1000 ))
-                    return{
-                        ...state,
-                        fruits:[...newFruits]
-                    }
-                }
-            }
+              
+                return {
+                  ...state,
+                  fruits: [...filteredFruits]
+                };
+              }
         // Author
         case "checkauthor":
             return {
                 ...state,
                 isAuthor: action.value,
             }
+
+        case "scrollTop":
+            document.documentElement.scrollTop = 0;
         default:
             return state;
     }

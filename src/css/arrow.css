@@ -26,3 +26,11 @@
     left: -5%;
     
 }
+
+
+@media only screen  and (max-width: 992px){
+    
+.fa-angle-left, .fa-angle-right {
+    padding: 0.3rem 0.3rem 0.3rem 0.5rem;
+}
+}
